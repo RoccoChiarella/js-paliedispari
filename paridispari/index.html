@@ -13,11 +13,17 @@
                     <span class="giocatori">Computer</span>
                 </div>
                 <div class="cubi">
-                    <div id="cubo-destra"></div>
-                    <div id="cubo-sinistra"></div>
+                    <div id="cubo-sinistra" class="dice first-face">
+                        <span class="dot"></span>
+                    </div>
+                    <div id="cubo-destra" class="dice first-face">
+                        <span class="dot"></span>
+                    </div>
                 </div>
-                <button onclick="pariDispari()">Giochiamo!</button>
-                <span id="esito"></span>
+                <div class="bottone">
+                    <button onclick="pariDispari()">Giochiamo!</button>
+                    <span id="esito"></span>
+                </div>
             </span>
        </section>
        <script src="assets/main.js" charset="utf-8"></script>

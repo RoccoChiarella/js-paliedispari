@@ -16,20 +16,40 @@ function numeroCasuale(maggiore, minore) {
     return numero;
 }
 
-function generaDadi(primoNumero, secondoNumero) {
-    var pallinePrimoDado = "";
+function generaFacciaDadi(numero) {
+    var x = "";
 
-    for (var i = 0; i < primoNumero; i++) {
-        pallinePrimoDado += '<span class"pallina"></span>'
+    if (numero == 1) {
+        x = "dice first-face";
+    } else if (numero == 2) {
+        x = "dice second-face";
+    } else if (numero == 3) {
+        x = "dice third-face";
+    } else if (numero == 4) {
+        x = "dice fourth-face";
+    } else if (numero == 5) {
+        x = "dice fifth-face";
     }
-    var pallineSecondoDado = "";
 
-    for (var i = 0; i < secondoNumero; i++) {
-        pallineSecondoDado += '<span class"pallina"></span>'
+    return x;
+}
+
+function generaPalliniDadi(numero) {
+    var x = "";
+
+    if (numero == 1) {
+        x = '<span class="dot"></span>';
+    } else if (numero == 2) {
+        x = '<span class="dot"></span><span class="dot"></span>';
+    } else if (numero == 3) {
+        x = '<span class="dot"></span><span class="dot"></span><span class="dot"></span>';
+    } else if (numero == 4) {
+        x = '<div class="column"><span class="dot"></span><span class="dot"></span></div><div class="column"><span class="dot"></span><span class="dot"></span></div>';
+    } else if (numero == 5) {
+        x = '<div class="column"><span class="dot"></span><span class="dot"></span></div><div class="column"><span class="dot"></span></div><div class="column"><span class="dot"></span><span class="dot"></span></div>';
     }
 
-    document.getElementById('cubo-sinistra').innerHTML = pallineSecondoDado;
-    document.getElementById('cubo-destra').innerHTML = pallinePrimoDado;
+    return x;
 }
 
 function controlloVincitore(utente, sceltaUtente, computer) {
@@ -46,7 +66,7 @@ function controlloVincitore(utente, sceltaUtente, computer) {
 
 function pariDispari() {
     do {
-        var numeroUtente = prompt("Inserisci un numero da 1 a 5");
+        var numeroUtente = parseInt(prompt("Inserisci un numero da 1 a 5"));
     }while ((numeroUtente < 1) || (numeroUtente > 5));
 
     do {
@@ -57,9 +77,21 @@ function pariDispari() {
 
     var numeroComputer = numeroCasuale(5,1);
 
+    var primoDado = document.getElementById('cubo-sinistra');
+
+    primoDado.className = generaFacciaDadi(numeroUtente);
+
+    var secondoDado = document.getElementById('cubo-destra');
+
+    secondoDado.className = generaFacciaDadi(numeroComputer);
+
+    console.log(numeroUtente);
+
+    document.getElementById('cubo-sinistra').innerHTML = generaPalliniDadi(numeroUtente);
+
     console.log(numeroComputer);
 
-    generaDadi(numeroUtente,numeroComputer);
+    document.getElementById('cubo-destra').innerHTML = generaPalliniDadi(numeroComputer);
 
     var vincitore = controlloVincitore(numeroUtente, sceltaUtenteBinaria, numeroComputer);
 
