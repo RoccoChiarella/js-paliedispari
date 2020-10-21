@@ -1,0 +1,34 @@
+.container{
+    width: 1000px;
+    margin: auto;
+}
+
+.titoli{
+    display: flex;
+    margin: 0 -100px;
+}
+
+.giocatori{
+    flex-grow: 1;
+    text-align: center;
+}
+
+.cubi{
+    display: flex;
+}
+
+#cubo-destra{
+    height: 450px;
+    flex-grow: 1;
+    margin: 50px 50px 50px 0;
+    background-color: lightgreen;
+    align-content: flex-end;
+}
+
+#cubo-sinistra{
+    height: 450px;
+    flex-grow: 1;
+    margin: 50px 0 50px 50px;
+    background-color: orange;
+    align-content: flex-end;
+}
