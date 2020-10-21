@@ -1,0 +1,1 @@
+palindroma-paridispari
